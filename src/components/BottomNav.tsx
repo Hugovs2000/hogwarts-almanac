@@ -1,41 +1,47 @@
+import { useLocation } from '@solidjs/router';
 import { FaSolidPeopleGroup, FaSolidWandSparkles } from 'solid-icons/fa';
 import { FiBook } from 'solid-icons/fi';
 import { TbTower } from 'solid-icons/tb';
-import { createSignal } from 'solid-js';
+import { createEffect, createSignal } from 'solid-js';
 
 export default function BottomNav() {
-  const [active, setActive] = createSignal<string>('');
+  const location = useLocation();
+  const [active, setActive] = createSignal('');
 
-  const handleClick = (section: string) => {
-    setActive(section);
-  };
+  createEffect(() => {
+    setActive(location.pathname.split('/')[1]);
+  });
 
   return (
     <div class="btm-nav">
-      <button
+      <a
+        href="/books"
         class={active() === 'books' ? 'active' : ''}
-        onClick={() => handleClick('books')}>
+        onClick={() => setActive('books')}>
         <FiBook />
         <span class="btm-nav-label">Books</span>
-      </button>
-      <button
+      </a>
+      <a
+        href="/houses"
         class={active() === 'houses' ? 'active' : ''}
-        onClick={() => handleClick('houses')}>
+        onClick={() => setActive('houses')}>
         <TbTower />
         <span class="btm-nav-label">Houses</span>
-      </button>
-      <button
+      </a>
+      <a
+        href="/characters"
         class={active() === 'characters' ? 'active' : ''}
-        onClick={() => handleClick('characters')}>
+        onClick={() => setActive('characters')}>
         <FaSolidPeopleGroup />
         <span class="btm-nav-label">Characters</span>
-      </button>
-      <button
+      </a>
+      <a
+        href="/spells"
         class={active() === 'spells' ? 'active' : ''}
-        onClick={() => handleClick('spells')}>
+        onClick={() => setActive('spells')}>
         <FaSolidWandSparkles />
         <span class="btm-nav-label">Spells</span>
-      </button>
+      </a>
     </div>
   );
 }
