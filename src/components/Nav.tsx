@@ -11,9 +11,15 @@ export default function Nav() {
           <FiMenu size={24} />
         </label>
       </div>
-      <div class="mx-2 flex-1 px-2">Hogwarts Almanac</div>
+      <div class="mx-2 flex-1 px-2">
+        <a href="/">Hogwarts Almanac</a>
+      </div>
       <div class="hidden flex-none lg:block">
-        <ul class="menu menu-horizontal"></ul>
+        <ul class="menu menu-horizontal">
+          <li>
+            <a href="/">Home</a>
+          </li>
+        </ul>
       </div>
     </div>
   );

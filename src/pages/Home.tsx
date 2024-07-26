@@ -1,34 +1,6 @@
-import { createQuery } from '@tanstack/solid-query';
-import { For, Match, Switch } from 'solid-js';
-import {
-  getBooks,
-  getCharacters,
-  getHouses,
-  getSpells,
-} from '../services/api.service';
 export default function Home() {
-  const books = createQuery(() => ({
-    queryKey: ['getBooks'],
-    queryFn: () => getBooks(),
-  }));
-
-  const characters = createQuery(() => ({
-    queryKey: ['getCharacters'],
-    queryFn: () => getCharacters(),
-  }));
-
-  const houses = createQuery(() => ({
-    queryKey: ['getHouses'],
-    queryFn: () => getHouses(),
-  }));
-
-  const spells = createQuery(() => ({
-    queryKey: ['getSpells'],
-    queryFn: () => getSpells(),
-  }));
-
   return (
-    <div class="flex flex-col bg-blue-400">
+    <div class="flex h-full w-full flex-col">
       <div class="relative z-0 w-full">
         <video
           autoplay
@@ -37,17 +9,58 @@ export default function Home() {
           playsinline
           src="https://cdn-hogwartslegacy.warnerbrosgames.com/home/hero.mp4?c=b"
           class="left-0 top-0"></video>
-        <div class="absolute left-0 top-0 h-full w-full bg-black/20"></div>
+        <div class="absolute top-14 flex w-full justify-center sm:top-24 md:top-32">
+          <img
+            src="src/assets/images/HarryPotterLogo.png"
+            alt="Harry Potter logo"
+            class="w-56 md:min-w-96"
+          />
+        </div>
       </div>
-      <Switch>
-        <Match when={spells.isPending}>Loading...</Match>
-        <Match when={spells.error}>
-          {'An error has occurred: ' + (spells.error as Error).message}
-        </Match>
-        <Match when={spells.data !== undefined}>
-          <For each={spells.data}>{spell => <h1>{spell.spell}</h1>}</For>
-        </Match>
-      </Switch>
+      <div class="flex w-full justify-center p-4 md:-translate-y-28">
+        <div class="carousel carousel-center max-w-full space-x-4 rounded-box bg-neutral p-4">
+          <a
+            href="/books"
+            class="carousel-item flex h-60 w-52 flex-col items-center justify-between">
+            <img
+              src="src/assets/images/books.png"
+              alt="Houses"
+              class="w-44 object-contain"
+            />
+            <span>Books</span>
+          </a>
+          <a
+            href="/houses"
+            class="carousel-item flex h-60 w-52 flex-col items-center justify-between">
+            <img
+              src="src/assets/images/Houses.png"
+              alt="Houses"
+              class="w-52 object-contain"
+            />
+            <span>Houses</span>
+          </a>
+          <a
+            href="/characters"
+            class="carousel-item flex h-60 w-52 flex-col items-center justify-between">
+            <img
+              src="src/assets/images/characters.png"
+              alt="Houses"
+              class="w-36 object-contain"
+            />
+            <span>Characters</span>
+          </a>
+          <a
+            href="spells"
+            class="carousel-item flex h-60 w-52 flex-col items-center justify-between">
+            <img
+              src="src/assets/images/spellcasting.png"
+              alt="Houses"
+              class="w-36 object-contain"
+            />
+            <span>Spells</span>
+          </a>
+        </div>
+      </div>
     </div>
   );
 }
