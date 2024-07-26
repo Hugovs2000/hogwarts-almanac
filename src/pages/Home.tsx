@@ -28,15 +28,24 @@ export default function Home() {
   }));
 
   return (
-    <div class='bg-blue-500'>
-      <h1>Home</h1>
+    <div class="flex flex-col bg-blue-400">
+      <div class="relative z-0 w-full">
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          src="https://cdn-hogwartslegacy.warnerbrosgames.com/home/hero.mp4?c=b"
+          class="left-0 top-0"></video>
+        <div class="absolute left-0 top-0 h-full w-full bg-black/20"></div>
+      </div>
       <Switch>
         <Match when={spells.isPending}>Loading...</Match>
         <Match when={spells.error}>
           {'An error has occurred: ' + (spells.error as Error).message}
         </Match>
         <Match when={spells.data !== undefined}>
-          <For each={spells.data}>{(spell) => <h1>{spell.spell}</h1>}</For>
+          <For each={spells.data}>{spell => <h1>{spell.spell}</h1>}</For>
         </Match>
       </Switch>
     </div>
