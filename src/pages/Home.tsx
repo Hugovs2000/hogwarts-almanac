@@ -11,7 +11,7 @@ export default function Home() {
           class="left-0 top-0 max-h-96 w-full object-cover object-center"></video>
         <div class="absolute top-1/3 flex w-full justify-center">
           <img
-            src="/src/assets/images/HarryPotterLogo.png"
+            src="/images/HarryPotterLogo.png"
             alt="Harry Potter logo"
             class="w-56 md:min-w-96"
           />
@@ -23,7 +23,7 @@ export default function Home() {
             href="/books"
             class="carousel-item flex h-60 w-52 flex-col items-center justify-between">
             <img
-              src="/src/assets/images/books.png"
+              src="/images/books.png"
               alt="Houses"
               class="w-44 object-contain"
             />
@@ -33,7 +33,7 @@ export default function Home() {
             href="/houses"
             class="carousel-item flex h-60 w-52 flex-col items-center justify-between">
             <img
-              src="/src/assets/images/Houses.png"
+              src="/images/Houses.png"
               alt="Houses"
               class="w-52 object-contain"
             />
@@ -43,7 +43,7 @@ export default function Home() {
             href="/characters"
             class="carousel-item flex h-60 w-52 flex-col items-center justify-between">
             <img
-              src="/src/assets/images/characters.png"
+              src="/images/characters.png"
               alt="Houses"
               class="w-36 object-contain"
             />
@@ -53,7 +53,7 @@ export default function Home() {
             href="spells"
             class="carousel-item flex h-60 w-52 flex-col items-center justify-between">
             <img
-              src="/src/assets/images/spellcasting.png"
+              src="/images/spellcasting.png"
               alt="Houses"
               class="w-36 object-contain"
             />

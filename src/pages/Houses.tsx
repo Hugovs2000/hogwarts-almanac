@@ -12,7 +12,7 @@ export default function Houses() {
     <>
       <div class="relative">
         <img
-          src="/src/assets/images/books-bg.webp"
+          src="/images/books-bg.webp"
           class="h-72 w-full object-cover object-center md:h-96"
         />
         <div class="absolute top-4 h-96 w-full flex-col text-center sm:top-8 md:top-20">
@@ -38,28 +38,28 @@ export default function Houses() {
                   <Switch>
                     <Match when={house.house === 'Gryffindor'}>
                       <img
-                        src="/src/assets/images/gryff-logo.png"
+                        src="/images/gryff-logo.png"
                         alt="Gryffindor"
                         class="max-w-full object-contain object-center"
                       />
                     </Match>
                     <Match when={house.house === 'Hufflepuff'}>
                       <img
-                        src="/src/assets/images/huff-logo.png"
+                        src="/images/huff-logo.png"
                         alt="Gryffindor"
                         class="max-w-full object-contain object-center"
                       />
                     </Match>
                     <Match when={house.house === 'Ravenclaw'}>
                       <img
-                        src="/src/assets/images/rave-logo.png"
+                        src="/images/rave-logo.png"
                         alt="Gryffindor"
                         class="max-w-full object-contain object-center"
                       />
                     </Match>
                     <Match when={house.house === 'Slytherin'}>
                       <img
-                        src="/src/assets/images/slyth-logo.png"
+                        src="/images/slyth-logo.png"
                         alt="Gryffindor"
                         class="max-w-full object-contain object-center"
                       />
