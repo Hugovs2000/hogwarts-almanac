@@ -1,3 +1,53 @@
+import { createQuery } from '@tanstack/solid-query';
+import { For, Match, Switch } from 'solid-js';
+import { getCharacters } from '../services/api.service';
+
 export default function Characters() {
-  return <p>Characters</p>;
+  const characters = createQuery(() => ({
+    queryKey: ['getCharacters'],
+    queryFn: () => getCharacters(),
+  }));
+
+  return (
+    <>
+      <div class="relative">
+        <img
+          src="/src/assets/images/books-bg.webp"
+          class="h-72 w-full object-cover object-center md:h-96"
+        />
+        <div class="absolute top-4 h-96 w-full flex-col text-center sm:top-8 md:top-20">
+          <h1 class="mx-auto w-fit text-center text-2xl">Characters</h1>
+          <p class="mx-auto max-h-60 max-w-96 text-ellipsis">
+            The Harry Potter series is renowned for its rich cast of characters,
+            each contributing to the magical world created by J.K. Rowling. From
+            the courageous trio of Harry Potter, Hermione Granger, and Ron
+            Weasley to the enigmatic Dumbledore and the dark Lord Voldemort,
+            each character brings unique depth and intrigue. Their journeys,
+            relationships, and growth are central to the series' enduring
+            appeal, captivating readers and viewers alike.
+          </p>
+        </div>
+      </div>
+      <Switch>
+        <Match when={characters.isLoading}>Loading...</Match>
+        <Match when={characters.error}>There was an error</Match>
+        <Match when={characters.data}>
+          <div class="m-4 flex flex-wrap justify-center gap-8 text-center">
+            <For each={characters.data}>
+              {character => (
+                <div class="flex max-w-32 cursor-pointer flex-col items-center">
+                  <img
+                    src={character.image}
+                    alt={character.fullName}
+                    class="max-w-full object-contain object-center"
+                  />
+                  <h2>{character.fullName}</h2>
+                </div>
+              )}
+            </For>
+          </div>
+        </Match>
+      </Switch>
+    </>
+  );
 }
