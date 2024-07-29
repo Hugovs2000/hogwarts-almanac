@@ -35,14 +35,16 @@ export default function Characters() {
           <div class="m-4 flex flex-wrap justify-center gap-8 text-center">
             <For each={characters.data}>
               {character => (
-                <div class="flex max-w-32 flex-col items-center">
+                <a
+                  href={`/character/${character.nickname}`}
+                  class="flex max-w-32 flex-col items-center">
                   <img
                     src={character.image}
                     alt={character.fullName}
                     class="max-w-full object-contain object-center"
                   />
                   <h2>{character.fullName}</h2>
-                </div>
+                </a>
               )}
             </For>
           </div>
