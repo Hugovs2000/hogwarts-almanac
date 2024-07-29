@@ -34,8 +34,10 @@ export default function Spells() {
           <div class="m-4 flex flex-col flex-nowrap items-center gap-8 text-center">
             <For each={spells.data}>
               {spell => (
-                <div class="flex max-w-32 flex-col items-center">
-                  <h2>{spell.spell}</h2>
+                <div class="flex w-48 flex-col items-center rounded-lg bg-neutral p-4">
+                  <h2 class="text-xl">{spell.spell}</h2>
+                  <div class="divider m-0"></div>
+                  <p>{spell.use}</p>
                 </div>
               )}
             </For>
