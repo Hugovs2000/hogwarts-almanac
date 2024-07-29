@@ -1,5 +1,5 @@
 import { FaSolidPeopleGroup, FaSolidWandSparkles } from 'solid-icons/fa';
-import { FiBook } from 'solid-icons/fi';
+import { FiBook, FiHome } from 'solid-icons/fi';
 import { TbTower } from 'solid-icons/tb';
 
 export default function Drawer() {
@@ -11,7 +11,10 @@ export default function Drawer() {
         class="drawer-overlay"></label>
       <ul class="menu min-h-full w-80 bg-base-200 p-4">
         <li>
-          <a href="/home">Home</a>
+          <a href="/home">
+            <FiHome />
+            Home
+          </a>
         </li>
         <li>
           <a href="/books">
