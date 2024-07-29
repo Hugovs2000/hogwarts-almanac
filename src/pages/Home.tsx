@@ -8,8 +8,8 @@ export default function Home() {
           loop
           playsinline
           src="https://cdn-hogwartslegacy.warnerbrosgames.com/home/hero.mp4?c=b"
-          class="left-0 top-0"></video>
-        <div class="absolute top-14 flex w-full justify-center sm:top-24 md:top-32">
+          class="left-0 top-0 max-h-96 w-full object-cover object-center"></video>
+        <div class="absolute top-1/3 flex w-full justify-center">
           <img
             src="src/assets/images/HarryPotterLogo.png"
             alt="Harry Potter logo"
@@ -17,7 +17,7 @@ export default function Home() {
           />
         </div>
       </div>
-      <div class="flex w-full justify-center p-4 md:-translate-y-28">
+      <div class="flex w-full justify-center p-4 md:-translate-y-20">
         <div class="carousel carousel-center max-w-full space-x-4 rounded-box bg-neutral p-4">
           <a
             href="/books"

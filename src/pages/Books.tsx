@@ -13,7 +13,7 @@ export default function Books() {
       <div class="relative">
         <img
           src="src/assets/images/books-bg.webp"
-          class="min-h-72 object-cover object-center"
+          class="h-72 w-full object-cover object-center md:h-96"
         />
         <div class="absolute top-4 h-96 w-full flex-col text-center sm:top-8 md:top-20">
           <h1 class="mx-auto w-fit text-center text-2xl">Books</h1>
@@ -32,16 +32,18 @@ export default function Books() {
         <Match when={books.isLoading}>Loading...</Match>
         <Match when={books.error}>There was an error</Match>
         <Match when={books.data}>
-          <div class="m-4 flex w-full flex-wrap justify-center gap-8 text-center">
+          <div class="m-4 flex flex-wrap justify-center gap-8 text-center">
             <For each={books.data}>
               {book => (
-                <div class="flex max-w-32 flex-col items-center">
+                <a
+                  href={`/book/${book.number}`}
+                  class="flex max-w-32 cursor-pointer flex-col items-center">
                   <img
                     src={book.cover}
                     class="max-w-full object-contain object-center"
                   />
                   <h2>{book.title}</h2>
-                </div>
+                </a>
               )}
             </For>
           </div>
