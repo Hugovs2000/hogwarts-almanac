@@ -20,22 +20,23 @@ export default function ViewBook() {
   }));
 
   return (
-    <>
-      <Suspense>
-        <Show when={query.isPending}>Loading...</Show>
-        <Show when={!query.isPending && !selectedBook()}>
-          No book was found
-        </Show>
-        <Show when={selectedBook()}>
-          <div class="flex w-full flex-col items-center">
-            <img
-              src={selectedBook()?.cover}
-              class="max-w-full object-contain object-center"
-            />
-            <h2>{selectedBook()?.title}</h2>
+    <Suspense>
+      <Show when={query.isPending}>Loading...</Show>
+      <Show when={!query.isPending && !selectedBook()}>No book was found</Show>
+      <Show when={selectedBook()}>
+        <div class="flex w-full flex-col items-center gap-2 p-6">
+          <img
+            src={selectedBook()?.cover}
+            class="max-w-full object-contain object-center"
+          />
+          <h2 class="text-xl">{selectedBook()?.title}</h2>
+          <div class="flex gap-4">
+            <p>{selectedBook()?.releaseDate}</p>
+            <p>{selectedBook()?.pages} pages</p>
           </div>
-        </Show>
-      </Suspense>
-    </>
+          <p class="text-center">{selectedBook()?.description}</p>
+        </div>
+      </Show>
+    </Suspense>
   );
 }

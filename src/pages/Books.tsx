@@ -12,7 +12,7 @@ export default function Books() {
     <>
       <div class="relative">
         <img
-          src="src/assets/images/books-bg.webp"
+          src="/src/assets/images/books-bg.webp"
           class="h-72 w-full object-cover object-center md:h-96"
         />
         <div class="absolute top-4 h-96 w-full flex-col text-center sm:top-8 md:top-20">
