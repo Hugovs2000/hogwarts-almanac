@@ -34,7 +34,7 @@ export default function Houses() {
           <div class="m-4 flex flex-wrap justify-center gap-8 text-center">
             <For each={houses.data}>
               {house => (
-                <div class="flex max-w-32 cursor-pointer flex-col items-center">
+                <div class="flex max-w-44 flex-col items-center">
                   <Switch>
                     <Match when={house.house === 'Gryffindor'}>
                       <img
@@ -65,7 +65,8 @@ export default function Houses() {
                       />
                     </Match>
                   </Switch>
-                  <h2>{house.house}</h2>
+                  <h2 class="text-xl">{house.house}</h2>
+                  <h3>Founder: {house.founder}</h3>
                 </div>
               )}
             </For>

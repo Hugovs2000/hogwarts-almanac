@@ -35,7 +35,7 @@ export default function Characters() {
           <div class="m-4 flex flex-wrap justify-center gap-8 text-center">
             <For each={characters.data}>
               {character => (
-                <div class="flex max-w-32 cursor-pointer flex-col items-center">
+                <div class="flex max-w-32 flex-col items-center">
                   <img
                     src={character.image}
                     alt={character.fullName}
