@@ -7,7 +7,7 @@ export default function Drawer() {
         class="drawer-overlay"></label>
       <ul class="menu min-h-full w-80 bg-base-200 p-4">
         <li>
-          <a href="/">Home</a>
+          <a href="/home">Home</a>
         </li>
       </ul>
     </div>

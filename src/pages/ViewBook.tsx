@@ -27,7 +27,7 @@ export default function ViewBook() {
           No book was found
         </Show>
         <Show when={selectedBook()}>
-          <div class="flex max-w-32 flex-col items-center">
+          <div class="flex w-full flex-col items-center">
             <img
               src={selectedBook()?.cover}
               class="max-w-full object-contain object-center"

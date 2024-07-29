@@ -1,6 +1,6 @@
 import { render } from 'solid-js/web';
 
-import { RouteDefinition, Router } from '@solidjs/router';
+import { Navigate, RouteDefinition, Router } from '@solidjs/router';
 import { lazy } from 'solid-js';
 import App from './App';
 
@@ -9,6 +9,14 @@ const root = document.getElementById('root');
 const routes: RouteDefinition[] = [
   {
     path: '',
+    component: () => <Navigate href="/home" />,
+  },
+  {
+    path: '/',
+    component: () => <Navigate href="/home" />,
+  },
+  {
+    path: '/home',
     component: lazy(() => import('./pages/Home')),
   },
   {
