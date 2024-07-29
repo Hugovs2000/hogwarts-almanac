@@ -40,7 +40,7 @@ export default function Books() {
                   class="flex max-w-32 cursor-pointer flex-col items-center">
                   <img
                     src={book.cover}
-                    class="max-w-full object-contain object-center"
+                    class="h-52 w-32 max-w-full object-cover object-center"
                   />
                   <h2>{book.title}</h2>
                 </a>
