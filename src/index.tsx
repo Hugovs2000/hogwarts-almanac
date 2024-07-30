@@ -32,6 +32,10 @@ const routes: RouteDefinition[] = [
     component: lazy(() => import('./pages/Houses')),
   },
   {
+    path: '/house/:house',
+    component: lazy(() => import('./pages/ViewHouse')),
+  },
+  {
     path: '/characters',
     component: lazy(() => import('./pages/Characters')),
   },
