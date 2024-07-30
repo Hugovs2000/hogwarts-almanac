@@ -24,12 +24,11 @@ export default function ViewBook() {
         </div>
       </Match>
       <Match when={query.data === undefined || query.error}>
-        Apologies, there was an error. Could not find the book you are looking
-        for.
+        Apologies, we could not find the book you are looking for.
       </Match>
       <Match when={query.data}>
         {query.data && (
-          <div class="flex w-full flex-col items-center gap-2 p-6">
+          <div class="flex w-full flex-col items-center gap-2 p-6 text-center">
             <img
               src={query.data.cover}
               class="max-w-full object-contain object-center"
@@ -39,7 +38,7 @@ export default function ViewBook() {
               <p>{query.data.releaseDate}</p>
               <p>{query.data.pages} pages</p>
             </div>
-            <p class="max-w-96 text-center">{query.data.description}</p>
+            <p class="max-w-96">{query.data.description}</p>
           </div>
         )}
       </Match>

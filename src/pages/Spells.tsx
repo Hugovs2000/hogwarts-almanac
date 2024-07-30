@@ -1,5 +1,6 @@
 import { createQuery } from '@tanstack/solid-query';
 import { For, Match, Switch } from 'solid-js';
+import FailedToFind from '../components/FailedToFind';
 import { getSpells } from '../services/api.service';
 
 export default function Spells() {
@@ -35,7 +36,9 @@ export default function Spells() {
             <div class="skeleton h-32 w-48"></div>
           </div>
         </Match>
-        <Match when={spells.error}>There was an error</Match>
+        <Match when={spells.error}>
+          <FailedToFind />
+        </Match>
         <Match when={spells.data}>
           <div class="m-4 flex flex-col flex-nowrap items-center gap-8 text-center">
             <For each={spells.data}>

@@ -11,7 +11,7 @@ const queryClient = new QueryClient();
 const App = (props: RouteSectionProps) => (
   <QueryClientProvider client={queryClient}>
     <div class="drawer">
-      <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
+      <input id="drawer-left" type="checkbox" class="drawer-toggle" />
       <div class="drawer-content flex flex-col">
         <Nav />
         <div class="mb-16">{props.children}</div>

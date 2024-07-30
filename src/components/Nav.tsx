@@ -5,7 +5,7 @@ export default function Nav() {
     <div class="navbar w-full bg-base-300">
       <div class="flex-none lg:hidden">
         <label
-          for="my-drawer-3"
+          for="drawer-left"
           aria-label="open sidebar"
           class="btn btn-square btn-ghost">
           <FiMenu size={24} />

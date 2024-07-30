@@ -1,5 +1,6 @@
 import { createQuery } from '@tanstack/solid-query';
 import { For, Match, Switch } from 'solid-js';
+import FailedToFind from '../components/FailedToFind';
 import { getCharacters } from '../services/api.service';
 
 export default function Characters() {
@@ -37,7 +38,9 @@ export default function Characters() {
             <div class="skeleton h-48 w-32"></div>
           </div>
         </Match>
-        <Match when={characters.error}>There was an error</Match>
+        <Match when={characters.error}>
+          <FailedToFind />
+        </Match>
         <Match when={characters.data}>
           <div class="m-4 flex flex-wrap justify-center gap-8 text-center">
             <For each={characters.data}>

@@ -1,5 +1,6 @@
 import { createQuery } from '@tanstack/solid-query';
 import { For, Match, Switch } from 'solid-js';
+import FailedToFind from '../components/FailedToFind';
 import { getHouses } from '../services/api.service';
 
 export default function Houses() {
@@ -36,7 +37,9 @@ export default function Houses() {
             <div class="skeleton h-32 w-48"></div>
           </div>
         </Match>
-        <Match when={houses.error}>There was an error</Match>
+        <Match when={houses.error}>
+          <FailedToFind />
+        </Match>
         <Match when={houses.data}>
           <div class="m-4 flex flex-wrap justify-center gap-8 text-center">
             <For each={houses.data}>
