@@ -26,7 +26,11 @@ export default function ViewCharacter() {
         </div>
       </Match>
       <Match when={query.data === undefined || query.error}>
-        Apologies, we could not find the character you are looking for.
+        <div class="m-4 flex flex-wrap justify-center gap-8 text-center">
+          <p class="max-w-96">
+            Apologies, we could not find the character you are looking for.
+          </p>
+        </div>
       </Match>
       <Match when={query.data}>
         {query.data && (

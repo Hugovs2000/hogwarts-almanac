@@ -16,6 +16,21 @@ export default function Nav() {
       </div>
       <div class="hidden flex-none lg:block">
         <ul class="menu menu-horizontal">
+          <div class="flex items-center gap-2">
+            <li>
+              <a href="/books">Books</a>
+            </li>
+            <li>
+              <a href="/houses">Houses</a>
+            </li>
+            <li>
+              <a href="/characters">Characters</a>
+            </li>
+            <li>
+              <a href="/spells">Spells</a>
+            </li>
+          </div>
+          <div class="divider divider-horizontal m-0"></div>
           <li>
             <a href="/home">Home</a>
           </li>

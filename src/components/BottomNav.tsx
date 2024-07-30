@@ -13,7 +13,7 @@ export default function BottomNav() {
   });
 
   return (
-    <div class="btm-nav">
+    <div class="btm-nav md:invisible">
       <a
         href="/books"
         class={active() === 'books' ? 'active' : ''}
