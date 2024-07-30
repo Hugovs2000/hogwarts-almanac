@@ -29,7 +29,14 @@ export default function Characters() {
         </div>
       </div>
       <Switch>
-        <Match when={characters.isLoading}>Loading...</Match>
+        <Match when={characters.isLoading}>
+          <div class="m-4 flex flex-wrap justify-center gap-8 text-center">
+            <div class="skeleton h-48 w-32"></div>
+            <div class="skeleton h-48 w-32"></div>
+            <div class="skeleton h-48 w-32"></div>
+            <div class="skeleton h-48 w-32"></div>
+          </div>
+        </Match>
         <Match when={characters.error}>There was an error</Match>
         <Match when={characters.data}>
           <div class="m-4 flex flex-wrap justify-center gap-8 text-center">
@@ -43,7 +50,7 @@ export default function Characters() {
                     alt={character.fullName}
                     class="max-w-full object-contain object-center"
                   />
-                  <h2>{character.fullName}</h2>
+                  <h2 class="max-w-32">{character.fullName}</h2>
                 </a>
               )}
             </For>

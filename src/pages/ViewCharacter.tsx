@@ -18,7 +18,13 @@ export default function ViewCharacter() {
 
   return (
     <Switch>
-      <Match when={query.isLoading}>Loading...</Match>
+      <Match when={query.isLoading}>
+        <div class="flex w-full flex-col items-center gap-4 p-6">
+          <div class="skeleton h-96 w-80"></div>
+          <div class="skeleton h-10 w-80"></div>
+          <div class="skeleton h-10 w-80"></div>
+        </div>
+      </Match>
       <Match when={query.data === undefined || query.error}>
         Apologies, there was an error. Could not find the character you are
         looking for.

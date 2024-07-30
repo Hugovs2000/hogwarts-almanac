@@ -29,7 +29,14 @@ export default function Books() {
         </div>
       </div>
       <Switch>
-        <Match when={books.isLoading}>Loading...</Match>
+        <Match when={books.isLoading}>
+          <div class="m-4 flex flex-wrap justify-center gap-8 text-center">
+            <div class="skeleton h-48 w-32"></div>
+            <div class="skeleton h-48 w-32"></div>
+            <div class="skeleton h-48 w-32"></div>
+            <div class="skeleton h-48 w-32"></div>
+          </div>
+        </Match>
         <Match when={books.error}>There was an error</Match>
         <Match when={books.data}>
           <div class="m-4 flex flex-wrap justify-center gap-8 text-center">

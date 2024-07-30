@@ -28,7 +28,13 @@ export default function Spells() {
         </div>
       </div>
       <Switch>
-        <Match when={spells.isLoading}>Loading...</Match>
+        <Match when={spells.isLoading}>
+          <div class="m-4 flex flex-col flex-nowrap items-center gap-8 text-center">
+            <div class="skeleton h-32 w-48"></div>
+            <div class="skeleton h-32 w-48"></div>
+            <div class="skeleton h-32 w-48"></div>
+          </div>
+        </Match>
         <Match when={spells.error}>There was an error</Match>
         <Match when={spells.data}>
           <div class="m-4 flex flex-col flex-nowrap items-center gap-8 text-center">

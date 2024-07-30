@@ -16,7 +16,13 @@ export default function ViewBook() {
 
   return (
     <Switch>
-      <Match when={query.isLoading}>Loading...</Match>
+      <Match when={query.isLoading}>
+        <div class="flex w-full flex-col items-center gap-4 p-6">
+          <div class="skeleton h-96 w-80"></div>
+          <div class="skeleton h-10 w-80"></div>
+          <div class="skeleton h-10 w-80"></div>
+        </div>
+      </Match>
       <Match when={query.data === undefined || query.error}>
         Apologies, there was an error. Could not find the book you are looking
         for.
@@ -33,7 +39,7 @@ export default function ViewBook() {
               <p>{query.data.releaseDate}</p>
               <p>{query.data.pages} pages</p>
             </div>
-            <p class="text-center">{query.data.description}</p>
+            <p class="max-w-96 text-center">{query.data.description}</p>
           </div>
         )}
       </Match>

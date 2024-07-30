@@ -28,7 +28,14 @@ export default function Houses() {
         </div>
       </div>
       <Switch>
-        <Match when={houses.isLoading}>Loading...</Match>
+        <Match when={houses.isLoading}>
+          <div class="m-4 flex flex-wrap justify-center gap-8 text-center">
+            <div class="skeleton h-32 w-48"></div>
+            <div class="skeleton h-32 w-48"></div>
+            <div class="skeleton h-32 w-48"></div>
+            <div class="skeleton h-32 w-48"></div>
+          </div>
+        </Match>
         <Match when={houses.error}>There was an error</Match>
         <Match when={houses.data}>
           <div class="m-4 flex flex-wrap justify-center gap-8 text-center">
