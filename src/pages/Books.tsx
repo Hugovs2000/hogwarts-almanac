@@ -1,6 +1,7 @@
 import { createQuery } from '@tanstack/solid-query';
 import { For, Match, Switch } from 'solid-js';
 import FailedToFind from '../components/FailedToFind';
+import SectionBackground from '../components/SectionBackground';
 import { getBooks } from '../services/api.service';
 
 export default function Books() {
@@ -9,26 +10,12 @@ export default function Books() {
     queryFn: () => getBooks(),
   }));
 
+  const description =
+    'The first Harry Potter book, Harry Potter and the Philosopher’s Stone, was published by Bloomsbury in 1997 to immediate popular and critical acclaim. Six further best-selling books, three companion books, a playscript and two screenplays have since followed. The Harry Potter books have been translated into over 80 languages, won multiple awards, and sold more than 500 million copies worldwide, becoming the best-selling book series in history...';
+
   return (
     <>
-      <div class="relative">
-        <img
-          src="/images/books-bg.webp"
-          class="h-72 w-full object-cover object-center md:h-96"
-        />
-        <div class="absolute top-4 w-full flex-col text-center sm:top-8 md:top-20">
-          <h1 class="mx-auto w-fit text-center text-2xl">Books</h1>
-          <p class="mx-auto max-w-96">
-            The first Harry Potter book, Harry Potter and the Philosopher’s
-            Stone, was published by Bloomsbury in 1997 to immediate popular and
-            critical acclaim. Six further best-selling books, three companion
-            books, a playscript and two screenplays have since followed. The
-            Harry Potter books have been translated into over 80 languages, won
-            multiple awards, and sold more than 500 million copies worldwide,
-            becoming the best-selling book series in history...
-          </p>
-        </div>
-      </div>
+      <SectionBackground title="Books" description={description} />
       <Switch>
         <Match when={books.isLoading}>
           <div class="m-4 flex flex-wrap justify-center gap-8 text-center">

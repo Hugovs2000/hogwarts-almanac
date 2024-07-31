@@ -1,6 +1,7 @@
 import { createQuery } from '@tanstack/solid-query';
 import { For, Match, Switch } from 'solid-js';
 import FailedToFind from '../components/FailedToFind';
+import SectionBackground from '../components/SectionBackground';
 import { getHouses } from '../services/api.service';
 
 export default function Houses() {
@@ -9,25 +10,12 @@ export default function Houses() {
     queryFn: () => getHouses(),
   }));
 
+  const description =
+    'Hogwarts School of Witchcraft and Wizardry is divided into four Houses: Gryffindor, Hufflepuff, Ravenclaw, and Slytherin. These Houses embody unique traits: Gryffindor values bravery, Hufflepuff emphasizes loyalty, Ravenclaw prizes intelligence, and Slytherin cherishes ambition. The Sorting Hat assigns new students to their Houses, shaping their Hogwarts experience.';
+
   return (
     <>
-      <div class="relative">
-        <img
-          src="/images/books-bg.webp"
-          class="h-72 w-full object-cover object-center md:h-96"
-        />
-        <div class="absolute top-4 w-full flex-col text-center sm:top-8 md:top-20">
-          <h1 class="mx-auto w-fit text-center text-2xl">Houses</h1>
-          <p class="mx-auto max-h-60 max-w-96 text-ellipsis">
-            Hogwarts School of Witchcraft and Wizardry is divided into four
-            Houses: Gryffindor, Hufflepuff, Ravenclaw, and Slytherin. These
-            Houses embody unique traits: Gryffindor values bravery, Hufflepuff
-            emphasizes loyalty, Ravenclaw prizes intelligence, and Slytherin
-            cherishes ambition. The Sorting Hat assigns new students to their
-            Houses, shaping their Hogwarts experience.
-          </p>
-        </div>
-      </div>
+      <SectionBackground title="Houses" description={description} />
       <Switch>
         <Match when={houses.isLoading}>
           <div class="m-4 flex flex-wrap justify-center gap-8 text-center">
