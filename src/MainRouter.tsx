@@ -44,6 +44,10 @@ const routes: RouteDefinition[] = [
     component: lazy(() => import('./pages/Spells')),
   },
   {
+    path: '/quiz',
+    component: lazy(() => import('./pages/Quiz')),
+  },
+  {
     path: '**',
     component: lazy(() => import('./pages/NotFound')),
   },

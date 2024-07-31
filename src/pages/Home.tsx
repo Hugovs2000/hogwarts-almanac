@@ -61,6 +61,12 @@ export default function Home() {
           </a>
         </div>
       </div>
+      <p class="p-4 text-center">
+        Test your knowledge with the{' '}
+        <a href="/quiz" class="link">
+          Spells Quiz
+        </a>
+      </p>
     </div>
   );
 }
