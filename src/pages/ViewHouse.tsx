@@ -1,7 +1,7 @@
 import { useParams } from '@solidjs/router';
 import { createQuery } from '@tanstack/solid-query';
-import { For, Match, Switch } from 'solid-js';
-import FailedToFind from '../components/FailedToFind';
+import { Match, Switch } from 'solid-js';
+import HouseInfo from '../components/HouseInfo';
 import { getCharacters, getHouses } from '../services/api.service';
 
 export default function ViewHouse() {
@@ -42,7 +42,11 @@ export default function ViewHouse() {
           houseCharacters.data === undefined ||
           houseCharacters.error
         }>
-        <FailedToFind />
+        <div class="m-4 flex flex-wrap justify-center gap-8 text-center">
+          <p class="max-w-96">
+            Apologies, we could not find the house you are looking for.
+          </p>
+        </div>
       </Match>
       <Match
         when={
@@ -50,35 +54,11 @@ export default function ViewHouse() {
           house.data &&
           houseCharacters.data
         }>
-        {house.data && houseCharacters.data && (
-          <div class="flex flex-col items-center justify-center gap-4 p-6 text-center">
-            <img
-              src={`/images/${house.data.house}.png`}
-              alt={house.data.house}
-              class="max-w-96 object-contain object-center"
-            />
-            <div>
-              <h1 class="text-2xl">{house.data.house}</h1>
-              <h2 class="text-xl">Founder: {house.data.founder}</h2>
-            </div>
-            <h3 class="mt-2 text-lg">Members:</h3>
-            <div class="flex flex-wrap justify-center gap-4">
-              <For each={houseCharacters.data}>
-                {character => (
-                  <a
-                    href={`/character/${character.nickname}`}
-                    class="flex flex-col gap-1">
-                    <img
-                      src={character.image}
-                      alt="Character"
-                      class="h-52 w-32 object-cover object-center"
-                    />
-                    <span class="max-w-32">{character.fullName}</span>
-                  </a>
-                )}
-              </For>
-            </div>
-          </div>
+        {house.data && (
+          <HouseInfo
+            house={house.data}
+            houseCharacters={houseCharacters.data}
+          />
         )}
       </Match>
     </Switch>
