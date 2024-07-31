@@ -1,6 +1,7 @@
 import { createQuery } from '@tanstack/solid-query';
 import { For, Match, Switch } from 'solid-js';
 import FailedToFind from '../components/FailedToFind';
+import InfoCard from '../components/InfoCard';
 import SectionBackground from '../components/SectionBackground';
 import { getCharacters } from '../services/api.service';
 
@@ -31,18 +32,7 @@ export default function Characters() {
         <Match when={characters.data}>
           <div class="m-4 flex flex-wrap justify-center gap-8 text-center">
             <For each={characters.data}>
-              {character => (
-                <a
-                  href={`/character/${character.nickname}`}
-                  class="flex max-w-32 flex-col items-center">
-                  <img
-                    src={character.image}
-                    alt={character.fullName}
-                    class="max-w-full object-contain object-center"
-                  />
-                  <h2 class="max-w-32">{character.fullName}</h2>
-                </a>
-              )}
+              {character => <InfoCard character={character} />}
             </For>
           </div>
         </Match>

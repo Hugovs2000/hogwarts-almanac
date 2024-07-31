@@ -1,6 +1,7 @@
 import { createQuery } from '@tanstack/solid-query';
 import { For, Match, Switch } from 'solid-js';
 import FailedToFind from '../components/FailedToFind';
+import InfoCard from '../components/InfoCard';
 import SectionBackground from '../components/SectionBackground';
 import { getHouses } from '../services/api.service';
 
@@ -30,21 +31,7 @@ export default function Houses() {
         </Match>
         <Match when={houses.data}>
           <div class="m-4 flex flex-wrap justify-center gap-8 text-center">
-            <For each={houses.data}>
-              {house => (
-                <a
-                  href={`/house/${house.house}`}
-                  class="flex max-w-44 flex-col items-center">
-                  <img
-                    src={`/images/${house.house}.png`}
-                    alt={house.house}
-                    class="max-w-full object-contain object-center"
-                  />
-                  <h2 class="text-xl">{house.house}</h2>
-                  <h3>Founder: {house.founder}</h3>
-                </a>
-              )}
-            </For>
+            <For each={houses.data}>{house => <InfoCard house={house} />}</For>
           </div>
         </Match>
       </Switch>
