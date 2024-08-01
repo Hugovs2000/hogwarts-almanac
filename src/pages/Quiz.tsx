@@ -70,7 +70,10 @@ export default function Quiz() {
             setQuestionIndex(0);
             setScore(0);
           }}>
-          Restart
+          Restart this quiz
+        </button>
+        <button onClick={() => location.reload()} class="btn">
+          Take a new quiz
         </button>
       </Show>
     </div>
