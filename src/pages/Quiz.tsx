@@ -1,5 +1,5 @@
 import { createQuery } from '@tanstack/solid-query';
-import { For, createEffect, createSignal } from 'solid-js';
+import { For, Show, createEffect, createSignal } from 'solid-js';
 import QuestionCard from '../components/QuestionCard';
 import { Spells } from '../models/spell';
 import { getSpells } from '../services/api.service';
@@ -7,6 +7,7 @@ import { getSpells } from '../services/api.service';
 export default function Quiz() {
   const [spells, setSpells] = createSignal<Spells | null>(null);
   const [questions, setQuestions] = createSignal<Spells | null>(null);
+  const [questionIndex, setQuestionIndex] = createSignal(0);
 
   createQuery(() => ({
     queryKey: ['getSpells'],
@@ -24,9 +25,11 @@ export default function Quiz() {
     const questions: Spells = [];
     if (currentSpells && currentSpells.length > 0 && questions.length === 0) {
       for (let i = 0; i < 10; i++) {
-        questions.push(
-          currentSpells[Math.floor(Math.random() * currentSpells.length)]
-        );
+        const question =
+          currentSpells[Math.floor(Math.random() * currentSpells.length)];
+        if (!questions.includes(question)) {
+          questions.push(question);
+        }
       }
       setQuestions(questions);
     }
@@ -39,11 +42,18 @@ export default function Quiz() {
 
   return (
     <div class="flex flex-col items-center gap-4 p-6">
-      {questions() && (
-        <For each={questions()}>
-          {question => <QuestionCard question={question} />}
-        </For>
-      )}
+      <For each={questions()}>
+        {question => (
+          <Show when={questionIndex() === questions()?.indexOf(question)}>
+            <QuestionCard question={question} />
+          </Show>
+        )}
+      </For>
+      <Show when={questionIndex() <= 9}>
+        <button onClick={() => setQuestionIndex(prev => prev + 1)}>
+          Next Question
+        </button>
+      </Show>
     </div>
   );
 }

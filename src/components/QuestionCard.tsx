@@ -14,30 +14,38 @@ export default function QuestionCard({ question }: { question: Spell }) {
     select: spells => {
       const randomSpells: string[] = [];
       if (spells) {
-        for (let i = 0; i < 3; i++) {
-          if (spells[i].spell !== question.spell) {
+        randomSpells.push(question.spell);
+        let counter = 0;
+        while (randomSpells.length < 4) {
+          if (
+            spells[counter].spell !== question.spell &&
+            !randomSpells.includes(spells[counter].spell)
+          ) {
             randomSpells.push(
               spells[Math.floor(Math.random() * spells.length)].spell
             );
           }
+          counter++;
         }
-        setRandomSpellNames(randomSpells);
+
+        setRandomSpellNames(shuffle(randomSpells));
       }
     },
   }));
+
+  const shuffle = (array: string[]) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
 
   return (
     <div class="flex w-full flex-col items-center gap-2 rounded-lg bg-neutral p-6 sm:w-96">
       <h2 class="text-xl">{question.use}</h2>
       <div class="divider m-0"></div>
       <div class="w-full self-start pl-4">
-        <input
-          type="radio"
-          id={question.spell}
-          value={question.spell}
-          class="mr-2"
-        />
-        <label for={question.spell}>{question.spell}</label>
         <For each={randomSpellNames()}>
           {spell => (
             <div>
