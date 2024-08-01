@@ -16,6 +16,12 @@ export default function Spells() {
   return (
     <>
       <SectionBackground title="Spells" description={description} />
+      <p class="p-4 text-center">
+        Test your knowledge with the{' '}
+        <a href="/quiz" class="link">
+          Spells Quiz
+        </a>
+      </p>
       <Switch>
         <Match when={spells.isLoading}>
           <div class="m-4 flex flex-col flex-nowrap items-center gap-8 text-center">

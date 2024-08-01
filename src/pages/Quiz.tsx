@@ -44,7 +44,7 @@ export default function Quiz() {
   });
 
   return (
-    <div class="flex flex-col items-center gap-4 p-6">
+    <div class="flex w-full flex-col items-center gap-4 p-6 sm:mx-auto sm:w-fit">
       <h1 class="text-3xl font-bold">Spells Quiz</h1>
       <For each={questions()}>
         {(question, index) => (
