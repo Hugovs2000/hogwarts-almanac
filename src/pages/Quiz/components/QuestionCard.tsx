@@ -55,7 +55,7 @@ export default function QuestionCard({
 
   return (
     <div class="flex min-h-72 w-full flex-col items-center gap-2 rounded-lg bg-neutral p-6 sm:w-96">
-      <h2 class="self-start text-xl">
+      <h2 class="flex min-h-14 items-center self-start text-xl">
         {questionNumber}. {question.use}
       </h2>
       <div class="divider m-0"></div>
@@ -83,15 +83,20 @@ export default function QuestionCard({
                       id={spell}
                       value={spell}
                       onChange={() => field().setValue(spell)}
+                      class="cursor-pointer"
                     />
-                    <label for={spell}>{spell}</label>
+                    <label for={spell} class="cursor-pointer">
+                      {spell}
+                    </label>
                   </div>
                 )}
               </For>
             </div>
           )}
         />
-        <button type="submit" class="mt-4">
+        <button
+          type="submit"
+          class="btn mt-4 border-0 bg-base-content text-base-300 hover:bg-base-content/50 hover:text-base-300">
           Submit
         </button>
       </form>

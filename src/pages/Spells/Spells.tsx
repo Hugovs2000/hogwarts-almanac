@@ -35,7 +35,7 @@ export default function Spells() {
           <FailedToFind />
         </Match>
         <Match when={spells.data}>
-          <div class="m-4 flex flex-col flex-nowrap items-center gap-8 text-center">
+          <div class="m-4 flex flex-wrap items-stretch justify-center gap-8 text-center">
             <For each={spells.data}>{spell => <SpellCard spell={spell} />}</For>
           </div>
         </Match>
