@@ -1,7 +1,7 @@
 import { For } from 'solid-js';
-import { Characters } from '../models/characters';
-import { House } from '../models/houses';
-import InfoCard from './InfoCard';
+import { Characters } from '../../../models/characters';
+import { House } from '../../../models/houses';
+import InfoCard from '../../../shared/InfoCard';
 
 export default function HouseInfo({
   house,

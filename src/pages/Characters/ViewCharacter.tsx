@@ -1,8 +1,8 @@
 import { useParams } from '@solidjs/router';
 import { createQuery } from '@tanstack/solid-query';
 import { Match, Switch } from 'solid-js';
-import CharacterInfo from '../components/CharacterInfo';
-import { getCharacters } from '../services/api.service';
+import { getCharacters } from '../../services/api.service';
+import CharacterInfo from './components/CharacterInfo';
 
 export default function ViewCharacter() {
   const params = useParams();

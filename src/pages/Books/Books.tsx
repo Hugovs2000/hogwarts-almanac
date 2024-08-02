@@ -1,9 +1,9 @@
 import { createQuery } from '@tanstack/solid-query';
 import { For, Match, Switch } from 'solid-js';
-import FailedToFind from '../components/FailedToFind';
-import InfoCard from '../components/InfoCard';
-import SectionBackground from '../components/SectionBackground';
-import { getBooks } from '../services/api.service';
+import { getBooks } from '../../services/api.service';
+import InfoCard from '../../shared/InfoCard';
+import SectionBackground from '../../shared/SectionBackground';
+import FailedToFind from '../Error/components/FailedToFind';
 
 export default function Books() {
   const books = createQuery(() => ({

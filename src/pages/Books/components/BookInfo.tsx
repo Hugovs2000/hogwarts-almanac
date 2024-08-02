@@ -1,4 +1,4 @@
-import { Book } from '../models/books';
+import { Book } from '../../../models/books';
 
 export default function BookInfo({ book }: { book: Book }) {
   return (

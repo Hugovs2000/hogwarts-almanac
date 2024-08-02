@@ -1,4 +1,4 @@
-import { Character } from '../models/characters';
+import { Character } from '../../../models/characters';
 
 export default function CharacterInfo({ character }: { character: Character }) {
   return (

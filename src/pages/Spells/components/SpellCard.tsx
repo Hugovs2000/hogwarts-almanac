@@ -1,4 +1,4 @@
-import { Spell } from '../models/spell';
+import { Spell } from '../../../models/spell';
 
 export default function SpellCard({ spell }: { spell: Spell }) {
   return (

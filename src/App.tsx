@@ -1,10 +1,10 @@
 import { RouteSectionProps } from '@solidjs/router';
 import { QueryClient, QueryClientProvider } from '@tanstack/solid-query';
 import { SolidQueryDevtools } from '@tanstack/solid-query-devtools';
-import BottomNav from './components/BottomNav';
-import Drawer from './components/Drawer';
-import Nav from './components/Nav';
 import './index.css';
+import BottomNav from './shared/BottomNav';
+import Drawer from './shared/Drawer';
+import Nav from './shared/Nav';
 
 const queryClient = new QueryClient();
 

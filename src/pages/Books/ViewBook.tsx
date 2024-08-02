@@ -1,8 +1,8 @@
 import { useParams } from '@solidjs/router';
 import { createQuery } from '@tanstack/solid-query';
 import { Match, Switch } from 'solid-js';
-import BookInfo from '../components/BookInfo';
-import { getBooks } from '../services/api.service';
+import { getBooks } from '../../services/api.service';
+import BookInfo from './components/BookInfo';
 
 export default function ViewBook() {
   const params = useParams();

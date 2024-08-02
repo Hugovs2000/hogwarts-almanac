@@ -1,8 +1,8 @@
 import { createQuery } from '@tanstack/solid-query';
 import { For, Show, createEffect, createSignal } from 'solid-js';
-import QuestionCard from '../components/QuestionCard';
-import { Spells } from '../models/spell';
-import { getSpells } from '../services/api.service';
+import { Spells } from '../../models/spell';
+import { getSpells } from '../../services/api.service';
+import QuestionCard from './components/QuestionCard';
 
 export default function Quiz() {
   const [spells, setSpells] = createSignal<Spells>([]);

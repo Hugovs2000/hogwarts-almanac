@@ -1,9 +1,9 @@
 import { createQuery } from '@tanstack/solid-query';
 import { For, Match, Switch } from 'solid-js';
-import FailedToFind from '../components/FailedToFind';
-import SectionBackground from '../components/SectionBackground';
-import SpellCard from '../components/SpellCard';
-import { getSpells } from '../services/api.service';
+import { getSpells } from '../../services/api.service';
+import SectionBackground from '../../shared/SectionBackground';
+import FailedToFind from '../Error/components/FailedToFind';
+import SpellCard from './components/SpellCard';
 
 export default function Spells() {
   const spells = createQuery(() => ({

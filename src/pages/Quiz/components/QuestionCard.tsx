@@ -2,8 +2,8 @@ import { createForm } from '@tanstack/solid-form';
 import { zodValidator } from '@tanstack/zod-form-adapter';
 import { For, Setter, createSignal } from 'solid-js';
 import { z } from 'zod';
-import { Spell, Spells } from '../models/spell';
-import shuffle from '../utils/shuffle';
+import { Spell, Spells } from '../../../models/spell';
+import shuffle from '../../../utils/shuffle';
 
 export default function QuestionCard({
   question,

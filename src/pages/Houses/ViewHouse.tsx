@@ -1,8 +1,8 @@
 import { useParams } from '@solidjs/router';
 import { createQuery } from '@tanstack/solid-query';
 import { Match, Switch } from 'solid-js';
-import HouseInfo from '../components/HouseInfo';
-import { getCharacters, getHouses } from '../services/api.service';
+import { getCharacters, getHouses } from '../../services/api.service';
+import HouseInfo from './components/HouseInfo';
 
 export default function ViewHouse() {
   const params = useParams();

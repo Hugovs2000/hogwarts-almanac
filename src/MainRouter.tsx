@@ -13,43 +13,43 @@ const routes: RouteDefinition[] = [
   },
   {
     path: '/home',
-    component: lazy(() => import('./pages/Home')),
+    component: lazy(() => import('./pages/Home/Home')),
   },
   {
     path: '/books',
-    component: lazy(() => import('./pages/Books')),
+    component: lazy(() => import('./pages/Books/Books')),
   },
   {
     path: '/book/:id',
-    component: lazy(() => import('./pages/ViewBook')),
+    component: lazy(() => import('./pages/Books/ViewBook')),
   },
   {
     path: '/houses',
-    component: lazy(() => import('./pages/Houses')),
+    component: lazy(() => import('./pages/Houses/Houses')),
   },
   {
     path: '/house/:house',
-    component: lazy(() => import('./pages/ViewHouse')),
+    component: lazy(() => import('./pages/Houses/ViewHouse')),
   },
   {
     path: '/characters',
-    component: lazy(() => import('./pages/Characters')),
+    component: lazy(() => import('./pages/Characters/Characters')),
   },
   {
     path: '/character/:name',
-    component: lazy(() => import('./pages/ViewCharacter')),
+    component: lazy(() => import('./pages/Characters/ViewCharacter')),
   },
   {
     path: '/spells',
-    component: lazy(() => import('./pages/Spells')),
+    component: lazy(() => import('./pages/Spells/Spells')),
   },
   {
     path: '/quiz',
-    component: lazy(() => import('./pages/Quiz')),
+    component: lazy(() => import('./pages/Quiz/Quiz')),
   },
   {
     path: '**',
-    component: lazy(() => import('./pages/NotFound')),
+    component: lazy(() => import('./pages/Error/NotFound')),
   },
 ];
 
