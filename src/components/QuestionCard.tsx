@@ -69,7 +69,7 @@ export default function QuestionCard({
   };
 
   return (
-    <div class="flex min-h-64 w-full flex-col items-center gap-2 rounded-lg bg-neutral p-6 sm:w-96">
+    <div class="flex min-h-72 w-full flex-col items-center gap-2 rounded-lg bg-neutral p-6 sm:w-96">
       <h2 class="self-start text-xl">
         {questionNumber}. {question.use}
       </h2>
@@ -80,7 +80,7 @@ export default function QuestionCard({
           e.stopPropagation();
           form.handleSubmit();
         }}
-        class="w-full">
+        class="h-full w-full">
         <form.Field
           name="selectedSpell"
           validatorAdapter={zodValidator()}
@@ -88,17 +88,16 @@ export default function QuestionCard({
             onChange: z.string().min(1),
           }}
           children={field => (
-            <div class="min-h-24 self-start pl-4">
+            <div class="flex min-h-32 flex-col gap-2 self-start pl-4">
               <For each={randomSpellNames()}>
                 {spell => (
-                  <div>
+                  <div class="flex items-center gap-2">
                     <input
                       type="radio"
                       name={field().name}
                       id={spell}
                       value={spell}
                       onChange={() => field().setValue(spell)}
-                      class="mr-2"
                     />
                     <label for={spell}>{spell}</label>
                   </div>

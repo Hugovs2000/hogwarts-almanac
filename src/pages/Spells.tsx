@@ -2,6 +2,7 @@ import { createQuery } from '@tanstack/solid-query';
 import { For, Match, Switch } from 'solid-js';
 import FailedToFind from '../components/FailedToFind';
 import SectionBackground from '../components/SectionBackground';
+import SpellCard from '../components/SpellCard';
 import { getSpells } from '../services/api.service';
 
 export default function Spells() {
@@ -35,15 +36,7 @@ export default function Spells() {
         </Match>
         <Match when={spells.data}>
           <div class="m-4 flex flex-col flex-nowrap items-center gap-8 text-center">
-            <For each={spells.data}>
-              {spell => (
-                <div class="flex w-56 flex-col items-center rounded-lg bg-neutral p-4 sm:w-64 md:w-72">
-                  <h2 class="text-xl">{spell.spell}</h2>
-                  <div class="divider m-0"></div>
-                  <p>{spell.use}</p>
-                </div>
-              )}
-            </For>
+            <For each={spells.data}>{spell => <SpellCard spell={spell} />}</For>
           </div>
         </Match>
       </Switch>
