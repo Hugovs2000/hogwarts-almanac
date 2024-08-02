@@ -5,19 +5,18 @@ import { Spells } from '../models/spell';
 import { getSpells } from '../services/api.service';
 
 export default function Quiz() {
-  const [spells, setSpells] = createSignal<Spells | null>(null);
-  const [questions, setQuestions] = createSignal<Spells | null>(null);
+  const [spells, setSpells] = createSignal<Spells>([]);
+  const [questions, setQuestions] = createSignal<Spells>([]);
   const [questionIndex, setQuestionIndex] = createSignal(0);
   const [score, setScore] = createSignal(0);
 
-  createQuery(() => ({
+  const getSpell = createQuery(() => ({
     queryKey: ['getSpells'],
     queryFn: () => getSpells(),
-    select: data => {
-      if (!data) {
-        return null;
+    select: spells => {
+      if (spells) {
+        setSpells(spells);
       }
-      setSpells(data);
     },
   }));
 
@@ -38,30 +37,43 @@ export default function Quiz() {
     }
 
     return () => {
-      setSpells(null);
-      setQuestions(null);
+      setSpells([]);
+      setQuestions([]);
     };
   });
 
   return (
     <div class="flex w-full flex-col items-center gap-4 p-6 sm:mx-auto sm:w-fit">
       <h1 class="text-3xl font-bold">Spells Quiz</h1>
+      <Show when={getSpell.isLoading}>
+        <div class="skeleton h-72 w-full rounded-lg"></div>
+      </Show>
       <For each={questions()}>
         {(question, index) => (
-          <Show when={questionIndex() === questions()?.indexOf(question)}>
-            <QuestionCard
-              question={question}
-              questionNumber={index() + 1} // Convert index to a number
-              setQuestionIndex={setQuestionIndex}
-              setScore={setScore}
-            />
-          </Show>
+          <>
+            <Show
+              when={
+                !getSpell.isLoading &&
+                questionIndex() === questions()?.indexOf(question)
+              }>
+              <QuestionCard
+                question={question}
+                spells={spells() ?? []}
+                questionNumber={index() + 1}
+                setQuestionIndex={setQuestionIndex}
+                setScore={setScore}
+              />
+            </Show>
+          </>
         )}
       </For>
       <Show when={questionIndex() < (questions()?.length ?? 0)}>
         <h2 class="self-start text-xl font-semibold">Score: {score()}</h2>
       </Show>
-      <Show when={questionIndex() === questions()?.length}>
+      <Show
+        when={
+          questions().length > 0 && questionIndex() === questions()?.length
+        }>
         <h2 class="text-xl font-semibold">Quiz complete!</h2>
         <h3 class="text-lg">Your score: {score()}</h3>
         <button
