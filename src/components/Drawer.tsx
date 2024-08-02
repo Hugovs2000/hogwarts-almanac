@@ -1,3 +1,4 @@
+import { BsQuestionSquare } from 'solid-icons/bs';
 import { FaSolidPeopleGroup, FaSolidWandSparkles } from 'solid-icons/fa';
 import { FiBook, FiHome } from 'solid-icons/fi';
 import { TbTower } from 'solid-icons/tb';
@@ -43,6 +44,12 @@ export default function Drawer() {
           <a href="/spells">
             <FaSolidWandSparkles />
             Spells
+          </a>
+        </li>
+        <li>
+          <a href="/quiz">
+            <BsQuestionSquare />
+            Quiz
           </a>
         </li>
       </ul>

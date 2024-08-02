@@ -31,13 +31,13 @@ export default function InfoCard({
         {character && (
           <a
             href={`/character/${character.nickname}`}
-            class="flex max-w-32 flex-col items-center">
+            class="flex w-32 flex-col items-center">
             <img
               src={character.image}
               alt={character.fullName}
-              class="max-w-full object-contain object-center"
+              class="min-h-48 w-32 object-contain object-center"
             />
-            <h2 class="max-w-32">{character.fullName}</h2>
+            <h2 class="w-32">{character.fullName}</h2>
           </a>
         )}
       </Match>

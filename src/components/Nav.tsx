@@ -29,6 +29,9 @@ export default function Nav() {
             <li>
               <a href="/spells">Spells</a>
             </li>
+            <li>
+              <a href="/quiz">Quiz</a>
+            </li>
           </div>
           <div class="divider divider-horizontal m-0"></div>
           <li>
