@@ -1,6 +1,7 @@
 import { For } from 'solid-js';
 import { Characters } from '../models/characters';
 import { House } from '../models/houses';
+import InfoCard from './InfoCard';
 
 export default function HouseInfo({
   house,
@@ -27,18 +28,7 @@ export default function HouseInfo({
               <h3 class="mt-2 text-lg">Members:</h3>
               <div class="flex flex-wrap justify-center gap-4">
                 <For each={houseCharacters}>
-                  {character => (
-                    <a
-                      href={`/character/${character.nickname}`}
-                      class="flex flex-col gap-1">
-                      <img
-                        src={character.image}
-                        alt="Character"
-                        class="h-52 w-32 object-cover object-center"
-                      />
-                      <span class="max-w-32">{character.fullName}</span>
-                    </a>
-                  )}
+                  {character => <InfoCard character={character} />}
                 </For>
               </div>
             </>

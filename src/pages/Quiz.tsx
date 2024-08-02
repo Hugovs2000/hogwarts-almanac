@@ -46,7 +46,7 @@ export default function Quiz() {
     <div class="flex w-full flex-col items-center gap-4 p-6 sm:mx-auto sm:w-fit">
       <h1 class="text-3xl font-bold">Spells Quiz</h1>
       <Show when={getSpell.isLoading}>
-        <div class="skeleton h-72 w-full rounded-lg"></div>
+        <div class="skeleton h-72 w-full rounded-lg sm:w-96"></div>
       </Show>
       <For each={questions()}>
         {(question, index) => (
