@@ -1,7 +1,7 @@
 import { useLocation } from '@solidjs/router';
 import { FaSolidPeopleGroup, FaSolidWandSparkles } from 'solid-icons/fa';
 import { FiBook } from 'solid-icons/fi';
-import { TbBuildingCastle } from 'solid-icons/tb';
+import { TbOutlineTower } from 'solid-icons/tb';
 import { createEffect, createSignal } from 'solid-js';
 
 export default function BottomNav() {
@@ -25,7 +25,7 @@ export default function BottomNav() {
         href="/houses"
         class={active() === 'houses' ? 'active' : ''}
         onClick={() => setActive('houses')}>
-        <TbBuildingCastle />
+        <TbOutlineTower />
         <span class="btm-nav-label">Houses</span>
       </a>
       <a
