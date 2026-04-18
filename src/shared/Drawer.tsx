@@ -1,7 +1,7 @@
 import { BsQuestionSquare } from 'solid-icons/bs';
 import { FaSolidPeopleGroup, FaSolidWandSparkles } from 'solid-icons/fa';
 import { FiBook, FiHome } from 'solid-icons/fi';
-import { TbTower } from 'solid-icons/tb';
+import { TbBuildingCastle } from 'solid-icons/tb';
 
 export default function Drawer() {
   return (
@@ -30,7 +30,7 @@ export default function Drawer() {
         </li>
         <li>
           <a href="/houses">
-            <TbTower />
+            <TbBuildingCastle />
             Houses
           </a>
         </li>
